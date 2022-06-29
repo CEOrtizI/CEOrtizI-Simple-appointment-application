@@ -1,9 +1,11 @@
+
 const mongoose = require('mongoose')
 
 const {Schema}=mongoose;
 
 const patientSchema=new Schema({
 
+    
     nit:{
         type:String,
         required:true,
@@ -31,3 +33,4 @@ const patientSchema=new Schema({
 
 
 module.exports=mongoose.model('patient',patientSchema)
+

@@ -1,7 +1,13 @@
 var mongoose =require('mongoose');
-schema =mongoose.schema;
-var Doctor= new schema({
+const {Schema}=mongoose
+var Doctor= new Schema({
     doctorID: 	{type:String},
-    deptDoc:	{type:Number}
+    Name:{type:String,require:true},
+    LastName:{type:String,require:true},
+    schedule:[{
+        type:Schema.Types.ObjectId,
+        ref:'Schedule'
+    }],
+    dept:{type:Schema.Types.ObjectId, ref:'Department'}
 })
 module.exports=mongoose.model('Doctor',Doctor)
