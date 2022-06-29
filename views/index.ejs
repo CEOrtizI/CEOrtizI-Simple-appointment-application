@@ -2,9 +2,15 @@
 <html lang='es'>
     <head>
         <%- include('./templates/header')%>
-        <%- include('./templates/navbar')%> 
+        
     </head>
     <body>
+        <% if(logged){ %>
+            <%- include('./templates/navbar')%> 
+        <% } else{%>
+       
+            <%- include('./templates/navbarlogout')%> 
+        <% }%>
         <div class="card vh-100">
             <div class="card-body">
                 <div class="row">
