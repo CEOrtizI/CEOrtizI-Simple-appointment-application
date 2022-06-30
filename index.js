@@ -5,7 +5,7 @@ const path = require('path')
 const index = require('./routes/index')
 const login=require('./routes/login')
 const date=require('./routes/appointment')
-
+const registrer=require('./routes/registrer')
 //Connection to the databaseName
 
 require('./drivers/drivers-data')
@@ -24,6 +24,7 @@ app.use(express.static(path.join(__dirname,'public')))
 app.use('/',index)
 app.use('/login',login)
 app.use('/appointment',date)
+app.use('/registrer',registrer)
 
 //Start server
 app.listen(app.get('port'), () => {
