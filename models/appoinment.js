@@ -3,7 +3,7 @@ schema =mongoose.schema;
 var appointment= new schema({
     appID: 	{type:String},
     date:	{type:Date},
-    time:	{type:Date},
+    status:	{type:Boolean},
     doctorID:	{type:Schema.Types.ObjectId, ref:'Doctor'},
     patientID: 	{type:Schema.Types.ObjectId, ref:'patient'},
   
