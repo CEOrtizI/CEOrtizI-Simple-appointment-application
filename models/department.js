@@ -1,8 +1,8 @@
 var mongoose =require('mongoose');
 const {Schema}=mongoose
 var department= new Schema({
-    departID: 	{type:Number},
-    departName:	{type:String},
-    doctor:{type:Schema.Types.ObjectId,ref:'Doctor'}
+    
+    department:	{type:String},
+    
 })
-module.exports=mongoose.model('Department',department)
+module.exports=mongoose.model('department',department)

@@ -1,30 +1,42 @@
-const express = require('express')
-const route=express.Router()
-const bodyParser = require('body-parser')
+const express = require("express");
+const route = express.Router();
+const session = require("express-session");
+const bodyParser = require("body-parser");
 
+route.use(bodyParser.json());
+const {
+  getHistory,
+  deleteAppointment,
+  getAppointment,
+  addAppointment,
+} = require("../controllers/controller_appointment");
 
-route.use(bodyParser.json())
+route.use(
+  session({
+    secret: "123456789",
+    resave: true,
+    saveUninitialized: true,
+  })
+);
 
-route.put('/', function(req, res) {
-    res.send("MODIFICAR CITA")
+route.get("/", getHistory);
+
+route.delete("/", deleteAppointment);
+
+route.get("/add", getAppointment);
+route.post("/add", addAppointment);
+/*
+route.post('/', async (req, res)  =>{
     
-})
-
-route.get('/',function(req, res) {
-    res.send("MOSTRAR CITAS")
+    try{
+        const doctor= await Schedule.find({})
+        
+        res.status(200).json({"result":true,"data":doctor})
     
-})
+    }
+    catch(err){
+        res.status(500).json({"result":false,"error":err.toString()})
+    }
 
-route.delete('/', function(req, res) {
-    res.send("Eliminar CITA")
-})
-
-route.get('/add',function(req, res) {
-
-    res.send("MOSTRAR FORMULARIO")
-    
-})
-route.post('/add', function(req, res) {
-    res.send("ENVIAR DATOS")
-})
+})*/
 module.exports = route;

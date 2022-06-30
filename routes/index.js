@@ -1,33 +1,17 @@
-const express = require('express')
-const session= require('express-session')
-const router = express.Router()
-const bodyParser = require('body-parser')
-router.use(session({
-    secret:'123456789',
-    resave:true,
-    saveUninitialized:true
-}))
+const express = require("express");
+const session = require("express-session");
+const router = express.Router();
+router.use(
+  session({
+    secret: "123456789",
+    resave: true,
+    saveUninitialized: true,
+  })
+);
 
-router.use(bodyParser.json())
+const { getIndex, getLogout } = require("../controllers/controller_index");
 
-router.get('/',(req,res)=>{
-    if(req.session.loggedin){
-        
-        res.render('index',{title:"Página Principal",logged:true})
-    }
+router.get("/", getIndex);
+router.get("/logout", getLogout);
 
-    else{
-        res.render('index',{title:"Página Principal",logged:false})
-    }
-   
-})
-router.get('/logout', function(req, res){
-
-    req.session.destroy(()=>{
-        res.redirect('/')
-    })
-
-})
-
-
-module.exports = router
+module.exports = router;

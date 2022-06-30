@@ -1,11 +1,11 @@
-var mongoose =require('mongoose');
-schema =mongoose.schema;
-var appointment= new schema({
-    appID: 	{type:String},
-    date:	{type:Date},
-    status:	{type:Boolean},
-    doctorID:	{type:Schema.Types.ObjectId, ref:'Doctor'},
-    patientID: 	{type:Schema.Types.ObjectId, ref:'patient'},
-  
-})
-module.exports=mongoose.model('Doctor',Doctor)
+var mongoose = require("mongoose");
+
+const { Schema } = mongoose;
+var appointment = new Schema({
+  date: { type: String },
+  time: { type: String },
+  doctorID: { type: Schema.Types.ObjectId, ref: "doctor" },
+  patientID: { type: Schema.Types.ObjectId, ref: "patient" },
+  scheduleID: { type: Schema.Types.ObjectId, ref: "schedule" },
+});
+module.exports = mongoose.model("appointment", appointment);
