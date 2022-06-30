@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es  ">
+  <head>
+    <%- include('./templates/header')%> <%- include('./templates/navbar')%>
+  </head>
+  <body>
+    <h1>HISTORIAL CITAS</h1>
+
+    <div class="contenedor">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Accion</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Hora</th>
+            <th scope="col">Profesional</th>
+          </tr>
+        </thead>
+        <tbody id="tbodyhistorial"></tbody>
+      </table>
+    </div>
+
+    <%- include('./templates/footer')%>
+
+    <script>
+    let appoinment= <%- JSON.stringify(appointment)%>;
+
+    </script>
+    <script src="/js/historial.js"></script>
+  </body>
+</html>
