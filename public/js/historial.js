@@ -29,7 +29,9 @@
                     .then(respuesta =>{
 
                       if(respuesta.result==true){
+                        alert("Tu cita ha sido eliminada correctamente")
                         window.location.href="http://localhost:8080/appointment/"
+                        
                         }
                     }
                     )
